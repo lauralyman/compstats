@@ -135,11 +135,15 @@ project:
 
 We actually need all of the generated website code in `username.github.io` to be in your outer directory (the one that is directly linked to Github). I know this step will feel awkward, and I'm sure there's likely a better way to do this, but for now, let's do the following. 
 
-1. Navigate to your `username.github.io` directory and check *every file inside of it*. 
+0. *(Time permitting. Laura needs to check this, and we may ignore this step).* Look at the `.gitignore` file in your `username.github.io` directory. Copy its contents. Paste those contents into the `.gitignore` in the directory above it (i.e., the `.gitignore` in the `test_website` directory.)
+
+1. Navigate to your `username.github.io` directory and check *every file inside of it* except for `.gitignore`.
 
 2. Click on the gear icon and then select `Move`. Move all of the files up one directory (to `test_website`).
 
-3. Now navigate to `test_website`. You can actually **delete** the `testwebsite.Rproj` file (but be sure to keep the `Rproj` file with your Github username!)
+3. Now navigate to `test_website`. You can actually **delete** the `testwebsite.Rproj` file (but be sure to keep the `Rproj` file with your Github username!) You can also **delete** your directory `username.github.io` now. 
+
+
 
 
 
@@ -181,3 +185,28 @@ Let's try committing what we have to Github.
 
 6. Once Github indicates that your website is deployed, click "Visit site" to go look at it. Your website is now on the internet! 
 
+
+## Adding a Page to Your Website (Time Permitting)
+
+1. Upload a `qmd` file of your choice to your `test_website` directory. For example, I will upload a copy of Lab 7 (where my file is named `Intro-CV.qmd`).
+
+2. Render your `qmd` file to HTML. You should see the `html` file appear in your directory.
+
+3. Render your `qmd` file to PDF. You should see the PDF appear in your directory.
+
+4. Navigate to `_quarto.yml`. Under the `navbar` section, add the `qmd` file underneath `about.qmd` as `- filename.qmd`. For example, the name of my file is `Intro-CV.qmd`, so my code looks like the following.
+
+```{r eval = F}
+website:
+  title: "Laura Lyman's Website"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - about.qmd
+      - Intro-CV.qmd
+```
+
+5. Click on `index.qmd` and click `Render`. You should now see your added `qmd` file in the navigation bar at the top of the site, and when you click on it, you should see your file rendered as HTML. 
+
+**Note.** Every time you want to update a page (i.e., update a `qmd` file), you should render that file before rendering `index.qmd`. 

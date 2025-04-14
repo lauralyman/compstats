@@ -3204,10 +3204,11 @@ Exercise
 <section id="moving-files-to-correct-locations" class="level2">
 <h2 class="anchored" data-anchor-id="moving-files-to-correct-locations">Moving Files to Correct Locations</h2>
 <p>We actually need all of the generated website code in <code>username.github.io</code> to be in your outer directory (the one that is directly linked to Github). I know this step will feel awkward, and I’m sure there’s likely a better way to do this, but for now, let’s do the following.</p>
-<ol type="1">
-<li><p>Navigate to your <code>username.github.io</code> directory and check <em>every file inside of it</em>.</p></li>
+<ol start="0" type="1">
+<li><p><em>(Time permitting. Laura needs to check this, and we may ignore this step).</em> Look at the <code>.gitignore</code> file in your <code>username.github.io</code> directory. Copy its contents. Paste those contents into the <code>.gitignore</code> in the directory above it (i.e., the <code>.gitignore</code> in the <code>test_website</code> directory.)</p></li>
+<li><p>Navigate to your <code>username.github.io</code> directory and check <em>every file inside of it</em> except for <code>.gitignore</code>.</p></li>
 <li><p>Click on the gear icon and then select <code>Move</code>. Move all of the files up one directory (to <code>test_website</code>).</p></li>
-<li><p>Now navigate to <code>test_website</code>. You can actually <strong>delete</strong> the <code>testwebsite.Rproj</code> file (but be sure to keep the <code>Rproj</code> file with your Github username!)</p></li>
+<li><p>Now navigate to <code>test_website</code>. You can actually <strong>delete</strong> the <code>testwebsite.Rproj</code> file (but be sure to keep the <code>Rproj</code> file with your Github username!) You can also <strong>delete</strong> your directory <code>username.github.io</code> now.</p></li>
 </ol>
 </section>
 <section id="commit-changes-to-github" class="level2">
@@ -3236,6 +3237,29 @@ Exercise
 <ol start="6" type="1">
 <li>Once Github indicates that your website is deployed, click “Visit site” to go look at it. Your website is now on the internet!</li>
 </ol>
+</section>
+<section id="adding-a-page-to-your-website-time-permitting" class="level2">
+<h2 class="anchored" data-anchor-id="adding-a-page-to-your-website-time-permitting">Adding a Page to Your Website (Time Permitting)</h2>
+<ol type="1">
+<li><p>Upload a <code>qmd</code> file of your choice to your <code>test_website</code> directory. For example, I will upload a copy of Lab 7 (where my file is named <code>Intro-CV.qmd</code>).</p></li>
+<li><p>Render your <code>qmd</code> file to HTML. You should see the <code>html</code> file appear in your directory.</p></li>
+<li><p>Render your <code>qmd</code> file to PDF. You should see the PDF appear in your directory.</p></li>
+<li><p>Navigate to <code>_quarto.yml</code>. Under the <code>navbar</code> section, add the <code>qmd</code> file underneath <code>about.qmd</code> as <code>- filename.qmd</code>. For example, the name of my file is <code>Intro-CV.qmd</code>, so my code looks like the following.</p></li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>website<span class="sc">:</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  title<span class="sc">:</span> <span class="st">&quot;Laura Lyman&#39;s Website&quot;</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  navbar<span class="sc">:</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    left<span class="sc">:</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>      <span class="sc">-</span> href<span class="sc">:</span> index.qmd</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>        text<span class="sc">:</span> Home</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>      <span class="sc">-</span> about.qmd</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>      <span class="sc">-</span> Intro<span class="sc">-</span>CV.qmd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="5" type="1">
+<li>Click on <code>index.qmd</code> and click <code>Render</code>. You should now see your added <code>qmd</code> file in the navigation bar at the top of the site, and when you click on it, you should see your file rendered as HTML.</li>
+</ol>
+<p><strong>Note.</strong> Every time you want to update a page (i.e., update a <code>qmd</code> file), you should render that file before rendering <code>index.qmd</code>.</p>
 </section>
 
 </main>
